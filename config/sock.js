@@ -1,4 +1,4 @@
-var app = require('express')();
+// var app = require('express')();
 var sharedSession = require("express-socket.io-session");
 const gLanguage = require('@google-cloud/language');
 // Instantiates a client
@@ -7,19 +7,11 @@ const language = new gLanguage.LanguageServiceClient({
 });
 
 var emotion = new require('../lib/emotion');
-
-var server = require('http').Server(app);
-var io = require('socket.io')(server);
-
 var api = require('./api');
 
-var connect = function() {
-  server.listen(8010);
+// var server = require('http').Server(app);
+var io;
 
-  app.get('/', function (req, res) {
-    res.sendfile(__dirname + '/index.html');
-  });
-};
 
 var start = function() {
   io.on('connection', function (socket) {
@@ -70,12 +62,14 @@ var start = function() {
   });
 }
 
-module.exports = function(session){
+module.exports = function(server, session){
+  io = require('socket.io').listen(server);
+
   // Use shared session middleware for socket.io
   // setting autoSave:true
   io.use(sharedSession(session, {
       autoSave:true
   })); 
 
-  return {connect,start};
+  return {start};
 }

@@ -1,6 +1,6 @@
 var botui = new BotUI('api-bot');
 
-var socket = io.connect('http://localhost:8010');
+var socket = io.connect();
 
 var sentimentLevel = 1;
 
@@ -19,10 +19,9 @@ socket.on('fromServer', processServerResponse);
 
 // read the BotUI docs : https://docs.botui.org/
 botui.message.add({
-  content: 'Hi! I\'m selfbot.',
+  content: 'Hi! I\'m tom.',
   delay: 1500,
 }).then(function () {
-  
   botui.action.text({
     action: { 
       placeholder: 'Say Hello!'
@@ -32,7 +31,6 @@ botui.message.add({
       socket.emit('fromClient', { client : res.value }); // sends the message typed to server
       console.log('convo.js fromclient res.value', res.value); // will print whatever was typed in the field.
   });
-
 });
 
 
