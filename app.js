@@ -16,7 +16,7 @@ var session = require("express-session")({
 
 var app = express();
 var server = app.listen(process.env.PORT || '3000');
-var socket = require('./config/sock')(server, session);
+var socket = require('./config/socket')(server, session);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

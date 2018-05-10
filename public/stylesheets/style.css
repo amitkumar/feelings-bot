@@ -1,3 +1,13 @@
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: rgb(2, 0, 31);
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -5,4 +15,82 @@ body {
 
 a {
   color: #00B7FF;
+}
+
+
+iframe {
+  width: 100%;
+}
+
+.botui-app-container {
+  margin-top: 40px;
+  height: 100%;
+}
+
+.botui-container {
+  background-color: rgb(2, 0, 31);
+
+}
+.botui-message-content {
+  color: #FFFFFF;
+  background-color: #F1C40F;
+  /*text-shadow: 1px rgba();*/
+}
+
+.botui-message-content.human {
+  background-color: #3498DB;
+}
+
+.botui-actions-text-input {
+  color: #FFFFFF;
+  border-bottom: 1px solid #3498DB;
+}
+
+.botui-actions-buttons-button {
+  line-height: 1 !important;
+  background-color: #3498DB;
+}
+
+.botui-message-content-link {
+  color: #F1C40F;
+}
+
+.botui-sentiment-1 .botui-message-content {
+	background-color: #F6F123;	
+}
+
+.botui-sentiment-2 .botui-message-content {
+	background-color: #F6D61F;
+}
+
+.botui-sentiment-3 .botui-message-content {
+	background-color: #F7BB1B;
+}
+
+.botui-sentiment-4 .botui-message-content {
+	background-color: #F7A118;
+}
+
+.botui-sentiment-5 .botui-message-content {
+	background-color: #F88614;
+}
+
+.botui-sentiment-6 .botui-message-content {
+	background-color: #F86B10;
+}
+
+.botui-sentiment-7 .botui-message-content {
+	background-color: #F9510D;
+}
+
+.botui-sentiment-8 .botui-message-content {
+	background-color: #F93609;
+}
+
+.botui-sentiment-9 .botui-message-content {
+	background-color: #FA1B05;
+}
+
+.botui-sentiment-10 .botui-message-content {
+	background-color: #FB0102;
 }
