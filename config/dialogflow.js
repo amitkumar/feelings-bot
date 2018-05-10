@@ -6,10 +6,10 @@ var apiai = require('apiai');
 var app = apiai("d4446299f04d468393a8a7ccf2ba9fa3");
 
 // Function which returns speech from api.ai
-var getRes = function(query) {
-
+var submit = function(sessionId, query) {
+	console.log('dialogflow submit', sessionId, query);
 	var request = app.textRequest(query, {
-		sessionId: '<unique session id>'
+		sessionId: sessionId
 	});
 	const responseFromAPI = new Promise(
 		function (resolve, reject) {
@@ -27,4 +27,4 @@ var getRes = function(query) {
 // test the command :
 //getRes('hello').then(function(res){console.log(res)});
 
-module.exports = {getRes}
+module.exports = {submit}

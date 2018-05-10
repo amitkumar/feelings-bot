@@ -7,7 +7,7 @@ const language = new gLanguage.LanguageServiceClient({
 });
 
 var emotion = new require('../lib/emotion');
-var api = require('./api');
+var dialogflow = require('./dialogflow');
 
 // var server = require('http').Server(app);
 var io;
@@ -43,7 +43,7 @@ var start = function() {
           // console.log(`Text: ${text}`);
           console.log(`Sentiment score: ${JSON.stringify(sentiment, null, 4)}`);
 
-          api.getRes(data.client).then(function(res){
+          dialogflow.submit(socket.id, data.client).then(function(res){
           
             console.log('sock.js fromserver', JSON.stringify(res, null, 4));
               
