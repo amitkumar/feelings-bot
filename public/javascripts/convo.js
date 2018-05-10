@@ -23,9 +23,9 @@ function mapSentimentToClass(sentimentValue){
 
   // 1 is happy, 10 is upset
   if (sentimentValue < 0){
-    result = 5 + ( (-sentimentValue / negativeSpread) * 5);
+    result = 3 + ( (-sentimentValue / negativeSpread) * 3);
   } else {
-    result = 5 - ( (sentimentValue / positiveSpread) * 4);
+    result = 3 - ( (sentimentValue / positiveSpread) * 2);
   }
 
   return 'botui-sentiment-' + Math.round(result);
@@ -70,6 +70,7 @@ function processServerResponse(data) { // receiving a reply from server.
   console.log('isRude', isRude, 'responseHistory', responseHistory);
   if (isRude){
     rudenessHistory.push(data);
+
     // Ensure botSentimentLevel goes negative
     if (botSentimentLevel > 0){ botSentimentLevel = 0; }
 
@@ -81,19 +82,32 @@ function processServerResponse(data) { // receiving a reply from server.
     responseContent = "Oh, thank you for apologizing. We're good now :)"
   }
 
-
-
   console.log('botSentimentLevel', botSentimentLevel);
+
+
+  if (botSentimentLevel < -.8 && rudenessHistory.length > 4){
+    responseContent = "You've been quite rude to me during this conversation (" +  rudenessHistory.length + " time" + (rudenessHistory.length > 1 ? "s" : "") + ", in fact. I think it's best we go our separate ways."; 
+  }
+  
 
   if (!responseContent){
     responseContent = "I don't know how to respond to that. Try asking me something else."
   }
 
+
   botui.message.add({
     content: responseContent,
     loading: false,
     cssClass : mapSentimentToClass(botSentimentLevel)
-  }).then(getGenericInput);
+  }).then(function(){
+    if (data.response.metadata.intentName !== 'goodbye'){
+      getGenericInput();  
+    } else {
+      setTimeout(function(){
+        $('.botui-app-container').css('opacity', 0);
+      }, 1500);
+    }
+  });
 }
 
 socket.on('fromServer', processServerResponse);

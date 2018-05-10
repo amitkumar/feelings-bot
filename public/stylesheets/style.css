@@ -25,6 +25,7 @@ iframe {
 .botui-app-container {
   margin-top: 40px;
   height: 100%;
+  transition: all .5s ease;
 }
 
 .botui-container {
@@ -55,8 +56,16 @@ iframe {
   color: #F1C40F;
 }
 
+
+/*
+.botui-sentiment-0 .botui-message-content {
+  background-color: #F6F123;
+  text-shadow: rgba(0, 0, 0, .5) 1px 1px 5px;
+}
+
 .botui-sentiment-1 .botui-message-content {
-	background-color: #F6F123;	
+	background-color: #F6F123;
+  text-shadow: rgba(0, 0, 0, .5) 1px 1px 5px;
 }
 
 .botui-sentiment-2 .botui-message-content {
@@ -93,4 +102,28 @@ iframe {
 
 .botui-sentiment-10 .botui-message-content {
 	background-color: #FB0102;
+}
+*/
+
+.botui-sentiment-0 .botui-message-content {
+  background-color: #F6F123;
+  text-shadow: rgba(0, 0, 0, .5) 1px 1px 5px;
+}
+.botui-sentiment-1 .botui-message-content {
+  background-color: #F6D61F;
+  text-shadow: rgba(0, 0, 0, .5) 1px 1px 5px;
+}
+
+.botui-sentiment-2 .botui-message-content {
+  background-color: #F7A118;
+}
+.botui-sentiment-3 .botui-message-content {
+  background-color: #F86B10;
+}
+.botui-sentiment-4 .botui-message-content {
+  background-color: #F93609;
+}
+
+.botui-sentiment-5 .botui-message-content {
+  background-color: #FB0102;
 }
