@@ -1,5 +1,7 @@
 A chatbot that detects a user's frustration and rudeness, and remembers the history of sentimentally impactful statements. Enough rudeness, and it responds with hurt feelings. An apology from the user makes it all better.
 
+Demo at https://tom.training 
+
 ![Technical Diagram](https://raw.githubusercontent.com/amitkumar/feelings-bot/master/documentation.png)
 
 # Service Accounts
