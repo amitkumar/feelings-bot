@@ -1,6 +1,6 @@
 A chatbot that detects a user's frustration and rudeness, and remembers the history of sentimentally impactful statements. Enough rudeness, and it responds with hurt feelings. An apology from the user makes it all better.
 
-!(https://raw.githubusercontent.com/amitkumar/feelings-bot/master/documentation.png)
+![Technical Diagram](https://raw.githubusercontent.com/amitkumar/feelings-bot/master/documentation.png)
 
 # Service Accounts
 https://console.dialogflow.com/api-client/#/agent/edd07648-d29e-40bf-a2d4-a01a9f9fbfcc/integrations
